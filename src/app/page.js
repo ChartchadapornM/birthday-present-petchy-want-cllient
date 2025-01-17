@@ -19,17 +19,29 @@ export default function Home() {
   }, []);
 
   const fetchhotdeals = async () => {
-    const respones = await fetch(`${endPoint}/product-hotdeals`);
+    const respones = await fetch(`${endPoint}/product-hotdeals`, {
+      headers: {
+        "ngrok-skip-browser-warning": "69420",
+      },
+    });
     const data = await respones.json();
     setHotdeals(data);
   };
   const fetchclothes = async () => {
-    const respones = await fetch(`${endPoint}/product-clothes`);
+    const respones = await fetch(`${endPoint}/product-clothes`, {
+      headers: {
+        "ngrok-skip-browser-warning": "69420",
+      },
+    });
     const data = await respones.json();
     setClothes(data);
   };
   const fetchothers = async () => {
-    const respones = await fetch(`${endPoint}/product-others`);
+    const respones = await fetch(`${endPoint}/product-others`, {
+      headers: {
+        "ngrok-skip-browser-warning": "69420",
+      },
+    });
     const data = await respones.json();
     setOthers(data);
   };

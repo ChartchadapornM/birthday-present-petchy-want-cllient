@@ -25,7 +25,10 @@ const AddPresentPage = () => {
     e.preventDefault();
     await fetch(`${endPoint}/add-product`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": "69420",
+      },
       body: JSON.stringify(formProduct),
     });
     router.push("/");
