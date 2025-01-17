@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 const poppins = Poppins({ weight: "400", subsets: ["latin"] });
+const endPoint = process.env.NEXT_PUBLIC_APIENDPOINT;
 
 export default function Home() {
   const [hotdeals, setHotdeals] = useState([]);
@@ -18,17 +19,17 @@ export default function Home() {
   }, []);
 
   const fetchhotdeals = async () => {
-    const respones = await fetch("http://localhost:8002/product-hotdeals");
+    const respones = await fetch(`${endPoint}/product-hotdeals`);
     const data = await respones.json();
     setHotdeals(data);
   };
   const fetchclothes = async () => {
-    const respones = await fetch("http://localhost:8002/product-clothes");
+    const respones = await fetch(`${endPoint}/product-clothes`);
     const data = await respones.json();
     setClothes(data);
   };
   const fetchothers = async () => {
-    const respones = await fetch("http://localhost:8002/product-others");
+    const respones = await fetch(`${endPoint}/product-others`);
     const data = await respones.json();
     setOthers(data);
   };

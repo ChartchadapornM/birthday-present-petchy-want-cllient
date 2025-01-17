@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Poppins } from "next/font/google";
 import { useRouter } from "next/navigation";
 const poppins = Poppins({ weight: "400", subsets: ["latin"] });
+const endPoint = process.env.NEXT_PUBLIC_APIENDPOINT;
 
 const AddPresentPage = () => {
   const [formProduct, setFormProduct] = useState({
@@ -22,7 +23,7 @@ const AddPresentPage = () => {
 
   const productSubmitForm = async (e) => {
     e.preventDefault();
-    await fetch("http://localhost:8002/add-product", {
+    await fetch(`${endPoint}/add-product`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formProduct),
